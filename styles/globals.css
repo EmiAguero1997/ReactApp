@@ -14,3 +14,25 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.container{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.cardBody{
+  background-color: grey;
+  display: block;
+  position:absolute;
+  width: 300px;
+  height: 500px;
+  border-radius: 20px;
+  border-style: groove;
+}
+
+.image{
+  width: 290px;
+  height: fit-content;
+  border-radius: 20px;
+}
