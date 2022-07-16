@@ -3,17 +3,13 @@ import { useRouter } from "next/router"
 
 export default function Home() {
   const router = useRouter();
-  const goToText = () =>{
-    router.push('/test');
-  }
   const goToCard = ()=>{
-    router.push('/card')
+    router.push('/renderer')
   }
   return (
     <div>
       <h1>Hola mundo!</h1>
-      <button onClick={goToText}>Go to Test</button>
-      <button onClick={goToCard}>Go to Card</button>
+      <button onClick={goToCard}>Go to Renderer</button>
     </div>
   )
 }
