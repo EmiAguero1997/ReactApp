@@ -1,0 +1,45 @@
+.title{
+    background-color: rgb(70, 70, 70);
+    color:white;
+}
+
+.backgroundCard{
+    background-color: black;
+    color: white;
+}
+.text{
+    color: white;
+}
+
+.header{
+    text-align: center;
+    height: 140px;
+    background-color: rgb(59, 59, 59);
+    color: white;
+    text:white;
+}
+
+.hero{
+    display: block;
+    justify-content: center;
+}
+
+.textFields{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.footerContainer{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(59, 59, 59);
+}
+
+.footer {
+    align-items: center;
+    text-align: center;
+    height: 140px;
+    color: white;
+    text: white;
+}

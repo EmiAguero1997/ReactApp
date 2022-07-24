@@ -1,6 +1,10 @@
 import Rendered from "./rendered";
 import Card from './card';
 import {useState, useEffect} from 'react';
+import styles from './styles.module.css';
+import { TextField } from "@mui/material";
+import {CardHeader} from "@mui/material";
+import Footer from './footer';
 
 function Renderer(){
 
@@ -36,13 +40,20 @@ function Renderer(){
     }
     return(
         <>
-            <input type="text" placeholder="Ingrese el titulo de la card" onChange={handleChange}></input>
-            <b></b>
-            <input type="text" placeholder="Ingrese la descripcion de la card" onChange={handleDescChange}></input>
-            <Rendered mensaje='Im being Rendered' click={handleClick}></Rendered>
-            <Card disabled={disabled} clickCounter={clickCounter} title={cardTitle? cardTitle : 'Honda CB 750'} description={cardDesc? cardDesc : 'With a powerful and reliable engine, the Honda CB 750 CC3 bike is one of the most choosed base bikes for Cafe racer bikes enthusiasts.'}/>
-
-            <h2>Click counter: {counter}</h2>
+            <CardHeader title="Emiserv Custom Bikes" className={styles.header}>   
+            </CardHeader>
+            <div>
+                <div className={styles.textFields}>
+                    <TextField type="text" className={styles.title} placeholder="Ingrese el titulo de la card" onChange={handleChange}></TextField>
+                    <b></b>
+                    <TextField type="text" className={styles.title} placeholder="Ingrese la descripcion de la card" onChange={handleDescChange}></TextField>
+                </div>
+                 <div className={styles.textFields}>
+                    <Card disabled={disabled} clickCounter={clickCounter} title={cardTitle? cardTitle : 'Honda CB 750'} description={cardDesc? cardDesc : 'With a powerful and reliable engine, the Honda CB 750 CC3 bike is one of the most choosed base bikes for Cafe racer bikes enthusiasts.'}/>
+                 </div>
+                <h2 className={styles.textFields}>Click counter: {counter}</h2>
+            </div>
+            <Footer></Footer>
         </>
     )
 }
