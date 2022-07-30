@@ -8,11 +8,22 @@ import Footer from './footer';
 
 function Renderer(){
 
+    const axios = require('axios').default;
     const [cardTitle, setCardTitle] = useState();
     const [cardDesc, setCardDesc] = useState();
     const [counter, setCounter] = useState(0);
     const [counter2, setCounter2] = useState(0);
     const [disabled, setDisabled] = useState(false);
+    var data;
+
+    function getData(){
+        axios.get('https://pokeapi.co/api/v2/pokemon/ditto').then(response =>{
+            
+            data = response.data;
+            console.log('data: ',data);
+
+        })
+    }
 
     useEffect(()=>{
         counter2==5 && (alert('You clicked 5 times'), setCounter2(0), disableBtn());
@@ -48,6 +59,7 @@ function Renderer(){
                     <b></b>
                     <TextField type="text" className={styles.title} placeholder="Ingrese la descripcion de la card" onChange={handleDescChange}></TextField>
                 </div>
+                <button onClick={()=>getData()}>Get data from API</button>
                  <div className={styles.textFields}>
                     <Card disabled={disabled} clickCounter={clickCounter} title={cardTitle? cardTitle : 'Honda CB 750'} description={cardDesc? cardDesc : 'With a powerful and reliable engine, the Honda CB 750 CC3 bike is one of the most choosed base bikes for Cafe racer bikes enthusiasts.'}/>
                  </div>
