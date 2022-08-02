@@ -1,4 +1,4 @@
-import Rendered from "./rendered";
+
 import Card from "./card";
 import { useState, useEffect } from "react";
 import styles from "./styles.module.css";
@@ -9,6 +9,7 @@ import { Select } from "@mui/material";
 import { MenuItem } from "@mui/material";
 import {Button} from '@mui/material';
 import Footer from "./footer";
+import Form from "./form";
 
 function Renderer() {
   const axios = require("axios").default;
@@ -77,21 +78,6 @@ function Renderer() {
             onChange={handleDescChange}
           ></TextField>
         </div>
-        <section>
-          <Button variant="contained" onClick={() => getData()}>Get data from API</Button>
-          {apiData && (
-            <FormControl>
-              <Select
-                value={pokemon}
-                onChange={handleSelectChange}
-              >
-                {apiData.map((element) => (
-                  <MenuItem value={element.name} key={element.name}>{element.name}</MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          )}
-        </section>
         <div className={styles.textFields}>
           <Card
             disabled={disabled}
@@ -106,6 +92,23 @@ function Renderer() {
         </div>
         <h2 className={styles.textFields}>Click counter: {counter}</h2>
       </div>
+      <section className={styles.container}>
+        <Button variant="contained" onClick={() => getData()}>
+          Get data from API
+        </Button>
+        {apiData && (
+          <FormControl>
+            <Select value={pokemon} onChange={handleSelectChange}>
+              {apiData.map((element) => (
+                <MenuItem value={element.name} key={element.name}>
+                  {element.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        )}
+      </section>
+      <Form></Form>
       <Footer></Footer>
     </>
   );
