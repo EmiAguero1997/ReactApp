@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
+import styles from './styles.module.css';
 
 export default function Home(){
     const axios = require("axios").default;
@@ -20,18 +21,25 @@ export default function Home(){
         getData();
     }, []);
 
-    return(
-        <>
-            <Head>
-                <title>Pokemons</title>
-            </Head>
-            <ul>
-                {
-                    apiData && apiData.map((item)=>(
-                        <Link href={`/pokemons/${item.name}`} key={item.name} name={item.name}>{item.name}</Link>
-                    ))
-                }
-            </ul>
-        </>
-    )
+    return (
+      <>
+        <Head>
+          <title>Pokemons</title>
+        </Head>
+        <ul>
+          {apiData &&
+            apiData.map((item) => (
+              <li key={item.name} name={item.name}>
+                <Link
+                  href={`/pokemons/${item.name}`}
+                  key={item.name}
+                  name={item.name}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+        </ul>
+      </>
+    );
 }

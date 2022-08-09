@@ -5,7 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import styles from'./styles.module.css'
+import styles from'./styles.module.css';
+import Image from 'next/image';
 
 export default function MediaCard(props) {
   return (
