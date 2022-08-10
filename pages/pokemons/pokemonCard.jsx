@@ -5,28 +5,33 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import styles from'./styles.module.css';
+import styles from'../styles.module.css';
+import Image from 'next/image';
 
-export default function MediaCard(props) {
-  return (
+export default function PokemonCard(props) {
+
+  const myLoader = ({ src }) => {
+    return `${props.data.front_default}`;
+  };
+
+  return props.data ? (
     <Card className={styles.backgroundCard} sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        height="340"
-        image="54a7bd0c0d9033785e7f6f2c234024e3.jpg"
-        alt="Moto honda cb 750"
-      />
+      <CardMedia>
+        <Image
+          loader={myLoader}
+          src={props.data.front_default}
+          width="340px"
+          height="340px"
+          alt="pokemonImg"
+        ></Image>
+      </CardMedia>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {props.title}
         </Typography>
-        <Typography className={styles.text} variant="body2" color="text.secondary">
-          {props.description}
-        </Typography>
       </CardContent>
-      <CardActions>
-        <Button onClick={()=> props.clickCounter(1)} disabled={props.disabled} size="small">Click me</Button>
-      </CardActions>
     </Card>
+  ) : (
+    <p>Loading...</p>
   );
 }

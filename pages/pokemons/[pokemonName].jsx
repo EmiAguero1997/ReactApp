@@ -1,7 +1,8 @@
-import Card from '../card';
+import PokemonCard from './pokemonCard';
 import {useRouter} from 'next/router';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 
 export default function Cards(){
     const router = useRouter();
@@ -13,21 +14,26 @@ export default function Cards(){
     },[])
 
     const getData = async ()=>{
-        const response = await axios.get(`https://pokeapi.co/api/v2/${pokemonName}`)
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`,)
           .then((response) => {
-            console.log('response: ',response);
+            setApiData(response.data);
           })
           .catch((error) => {
             console.log(error);
           });
-        setApiData(response);
-        console.log('apiData: ',apiData);
+       
+        
     }
     
     return(
         <>
             <h2>{pokemonName}</h2>
-            <Card></Card>
+            {
+              apiData && (
+                <PokemonCard title={apiData.species.name} data={apiData.sprites}></PokemonCard>
+              )
+            }
+            
         </>
     )
 }
