@@ -1,18 +1,19 @@
-
+import { auth } from "../../config/firebase";
 import { useState, createContext } from "react";
-import { useMemo } from "react";
+import firebase from "firebase/compat/app";
 
 export function AppProvider({children}){
 
-    const [state, setState] = useState({email:'something', pass:'something'});
+    const [user, setUser] = useState({email:'something', pass:'something'});
 
     function register(data){
-        setState(data);
+        setUser(data);
+        return auth.createUserWithEmailAndPassword(user.email, user.pass);
     }
 
     const value = {
        
-        state, register
+        user, register
         
     }
 

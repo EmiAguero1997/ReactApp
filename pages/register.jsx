@@ -1,6 +1,7 @@
 import{Container, Button, TextField} from '@mui/material';
 import {useState, useContext} from 'react';
 import { appContext } from './context/appContext';
+import Swal from'sweetalert2';
 
 export default function Register(){
     const [registerForm, setRegisterForm] = useState({
@@ -8,13 +9,28 @@ export default function Register(){
         pass:""
     });
 
-    const {register, state} = useContext(appContext);
+    const {register} = useContext(appContext);
     
 
     const handleChange = (e)=>{
-        // e.preventDefault();
         setRegisterForm({...registerForm,[e.target.id]: [e.target.value]});
-        register(registerForm);
+    }
+
+    const submit = (e)=>{
+        e.preventDefault();
+        register(user).then(()=>{
+            Swal.fire({
+                title:'Usuario registrado!',
+                icon:'success',
+                showConfirmButton:false
+            })
+        }).catch(()=>{
+            Swal.fire({
+                title:'Error',
+                icon:'error',
+                showConfirmButton:false
+            })
+        })
     }
     return (
         <>
@@ -40,8 +56,6 @@ export default function Register(){
                 <br />
                 <span><a>Forgot your password?</a></span>
             </form>
-            <h3>{state?.email}</h3>
-            <h3>{state?.pass}</h3>
         </Container>
     </>
     );
