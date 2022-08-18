@@ -2,6 +2,7 @@ import{Container, Button, TextField} from '@mui/material';
 import {useState, useContext} from 'react';
 import { appContext } from './context/appContext';
 import Swal from'sweetalert2';
+import { useRouter } from 'next/router';
 
 export default function Register(){
     const [registerForm, setRegisterForm] = useState({
@@ -9,8 +10,11 @@ export default function Register(){
         pass:""
     });
 
-    const {register} = useContext(appContext);
+    const {register, logout} = useContext(appContext);
     
+    const router = useRouter();
+
+    const [loginBtn, setLoginBtn] = useState(true);
 
     const handleChange = (e)=>{
         setRegisterForm({...registerForm,[e.target.id]: [e.target.value]});
@@ -24,6 +28,7 @@ export default function Register(){
                 icon:'success',
                 showConfirmButton:false
             })
+            setLoginBtn(false);
         }).catch(()=>{
             Swal.fire({
                 title:'Error',
@@ -32,10 +37,23 @@ export default function Register(){
             })
         })
     }
+
+    const fireLogout = () =>{
+        logout();
+    }
+
+    const goToLogin = ()=>{
+        router.push('/login');
+    }
+
+    const goToPrivatePage = ()=>{
+        router.push('/privatePage');
+    }
+
     return (
         <>
         <Container>
-            <h1>Login</h1>
+            <h1>Register</h1>
             <form>
                 <TextField type="text"
                     label='Email'
@@ -53,10 +71,13 @@ export default function Register(){
                     onChange={handleChange}>
 
                 </TextField>
-                <Button onClick={submit}>Submit</Button>
+                <Button onClick={submit}>Create user</Button>
                 <br />
                 <span><a>Forgot your password?</a></span>
             </form>
+            <Button onClick={fireLogout}>Logout</Button>
+            <Button onClick={goToLogin} disabled={loginBtn}>Login</Button>
+            <Button onClick={goToPrivatePage}>Private page</Button>
         </Container>
     </>
     );
