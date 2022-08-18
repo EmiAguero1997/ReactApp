@@ -18,7 +18,7 @@ export default function Register(){
 
     const submit = (e)=>{
         e.preventDefault();
-        register(user).then(()=>{
+        register(registerForm).then(()=>{
             Swal.fire({
                 title:'Usuario registrado!',
                 icon:'success',
@@ -53,6 +53,7 @@ export default function Register(){
                     onChange={handleChange}>
 
                 </TextField>
+                <Button onClick={submit}>Submit</Button>
                 <br />
                 <span><a>Forgot your password?</a></span>
             </form>
