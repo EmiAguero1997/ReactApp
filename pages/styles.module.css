@@ -58,3 +58,20 @@
 .openModalBtn{
     margin: 10px;
 }
+
+.tabContainer{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 140px;
+    color: white;
+    text: white;
+}
+
+@media screen and (max-width:662px),(min-width:375px) {
+
+    .tabContainer{
+        display: block;
+        object-fit: contain;
+    }
+}

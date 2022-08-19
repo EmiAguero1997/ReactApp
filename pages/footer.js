@@ -16,10 +16,13 @@ export default function Footer() {
   return (
     <div className={styles.footerContainer}>
         <Tabs value={value} onChange={handleChange} className={styles.footer} aria-label="icon tabs example">
+            <div className={styles.tabContainer}>
             <Tab icon={<PhoneIcon />} aria-label="phone" />
             <Tab icon={<FavoriteIcon />} aria-label="favorite" />
             <Tab icon={<PersonPinIcon />} aria-label="person" />
             <h2>Desarrollado por Emiliano Aguero</h2>
+            </div>
+            
         </Tabs>
     </div>
   );
