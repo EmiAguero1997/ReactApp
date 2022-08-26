@@ -2,7 +2,8 @@ import{Container, Button, TextField} from '@mui/material';
 import {useState, useContext} from 'react';
 import { appContext } from './context/appContext';
 import Swal from'sweetalert2';
-import {useRouter} from 'next/router';
+import {makePublicRouterInstance, useRouter} from 'next/router';
+import styles from './styles.module.css';
 
 function Login(){
 
@@ -17,6 +18,10 @@ function Login(){
 
     const handleChange = (e) =>{
         setRegisterForm({...registerForm, [e.target.id]: [e.target.value]});
+    }
+
+    const goCreateAccount = ()=>{
+        router.push('/register');
     }
 
     const errorModal = ()=>{
@@ -57,7 +62,9 @@ function Login(){
 
     return(
         <>
-            <Container>
+            <div>
+            <Container className={styles.loginContainer}>
+            <div className={styles.loginContent}>
             <h1>Login</h1>
             <form>
                 <TextField type="text"
@@ -82,7 +89,10 @@ function Login(){
             </form>
             <Button onClick={fireLogout}>Logout</Button>
             <Button onClick={goToPrivatePage}>Go to privatePage</Button>
+            <Button onClick={goCreateAccount}>Create account</Button>
+            </div>
         </Container>
+            </div>
         </>
     )
 }

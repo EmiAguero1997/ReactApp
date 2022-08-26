@@ -4,11 +4,50 @@
 }
 
 .backgroundCard{
-    background-color: black;
+    background-color: grey;
     color: white;
 }
+
+.pokemonCard{
+    background-color: white;
+}
+
+.pokemonContainer{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color:white;
+}
+
+.pokemonMenu{
+    background-color: white;
+}
+
+.pokemonNamePageBody{
+    background-color: black;
+    height: 100%;
+}
+
+.pokemonNamePageBody h2{
+    text-align: center;
+    color: white;
+}
+
 .text{
     color: white;
+}
+
+.nav{
+    display: flex;
+    background-color: rgb(59, 59, 59);
+    justify-content: center;
+}
+
+.nav a{
+    align-self: center;
 }
 
 .header{
@@ -57,4 +96,36 @@
 
 .openModalBtn{
     margin: 10px;
+}
+
+.tabContainer{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 140px;
+    color: white;
+    text: white;
+}
+
+.loginContainer{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    align-content: center;
+}
+
+.loginContent{
+    margin-top: 30px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 40px;
+    align-self: center;
+}
+
+@media screen and (max-width:662px),(min-width:375px) {
+
+    .tabContainer{
+        display: block;
+        object-fit: contain;
+    }
 }

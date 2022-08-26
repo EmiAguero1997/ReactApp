@@ -25,7 +25,7 @@ export default function MediaCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button onClick={()=> props.clickCounter(1)} disabled={props.disabled} size="small">Click me</Button>
+        <Button variant='contained' onClick={()=> props.clickCounter(1)} disabled={props.disabled} size="small">Click me</Button>
       </CardActions>
     </Card>
   );

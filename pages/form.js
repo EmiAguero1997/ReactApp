@@ -55,7 +55,7 @@ function Form(){
       <>
         <div className={styles.container}>
           <Button className={styles.openModalBtn} variant="contained" onClick={handleOpen}>
-            Open modal fom
+            Contact
           </Button>
         </div>
         <Modal
