@@ -20,7 +20,7 @@ export default function Footer() {
             <Tab icon={<PhoneIcon />} aria-label="phone" />
             <Tab icon={<FavoriteIcon />} aria-label="favorite" />
             <Tab icon={<PersonPinIcon />} aria-label="person" />
-            <h2>Desarrollado por Emiliano Aguero</h2>
+            <h3>Desarrollado por Emiliano Aguero</h3>
             </div>
             
         </Tabs>

@@ -1,6 +1,7 @@
 import PokemonCard from './pokemonCard';
 import {useRouter} from 'next/router';
 import { useState, useEffect } from 'react';
+import { CircularProgress } from '@material-ui/core';
 import axios from 'axios';
 
 
@@ -29,9 +30,9 @@ export default function Cards(){
         <>
             <h2>{pokemonName}</h2>
             {
-              apiData && (
+              apiData ? (
                 <PokemonCard title={apiData.species.name} data={apiData.sprites}></PokemonCard>
-              )
+              ): <CircularProgress/>
             }
             
         </>

@@ -11,6 +11,16 @@
     color: white;
 }
 
+.nav{
+    display: flex;
+    background-color: rgb(59, 59, 59);
+    justify-content: center;
+}
+
+.nav a{
+    align-self: center;
+}
+
 .header{
     text-align: center;
     height: 140px;
