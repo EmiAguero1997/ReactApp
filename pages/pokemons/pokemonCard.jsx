@@ -15,7 +15,8 @@ export default function PokemonCard(props) {
   };
 
   return props.data ? (
-    <Card className={styles.backgroundCard} sx={{ maxWidth: 345 }}>
+    <div>
+      <Card sx={{ maxWidth: 345 }}>
       <CardMedia>
         <Image
           loader={myLoader}
@@ -31,6 +32,7 @@ export default function PokemonCard(props) {
         </Typography>
       </CardContent>
     </Card>
+    </div>
   ) : (
     <p>Loading...</p>
   );

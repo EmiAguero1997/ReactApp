@@ -3,6 +3,7 @@ import {useState, useContext} from 'react';
 import { appContext } from './context/appContext';
 import Swal from'sweetalert2';
 import { useRouter } from 'next/router';
+import styles from './styles.module.css';
 
 export default function Register(){
     const [registerForm, setRegisterForm] = useState({
@@ -52,7 +53,8 @@ export default function Register(){
 
     return (
         <>
-        <Container>
+        <Container className={styles.loginContainer}>
+            <div className={styles.loginContent}>
             <h1>Register</h1>
             <form>
                 <TextField type="text"
@@ -78,6 +80,7 @@ export default function Register(){
             <Button onClick={fireLogout}>Logout</Button>
             <Button onClick={goToLogin} disabled={loginBtn}>Login</Button>
             <Button onClick={goToPrivatePage}>Private page</Button>
+            </div>
         </Container>
     </>
     );

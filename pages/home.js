@@ -14,6 +14,8 @@ import Link from 'next/link';
 import CircularProgress from '@mui/material/CircularProgress';
 import Tab from "@mui/material";
 import PersonPinIcon from "@mui/icons-material/PersonPin";
+import Tooltip from '@mui/material/Tooltip';
+
 
 function Renderer() {
   const axios = require("axios").default;
@@ -71,7 +73,9 @@ function Renderer() {
         title="Emiserv Custom Bikes"
         className={styles.header}>
       </CardHeader>
+      <Tooltip title='Login'>
       <a href='/login'><PersonPinIcon /></a>
+      </Tooltip>
       </nav>
       
       <div>
@@ -110,7 +114,7 @@ function Renderer() {
         </Button>
         {apiData && (
           <FormControl>
-            <Select value={pokemon} onChange={handleSelectChange}>
+            <Select value={pokemon} onChange={handleSelectChange} className={styles.pokemonMenu}>
               {apiData.map((element) => (
                 <MenuItem value={element.name} key={element.name}>
                   <Link
